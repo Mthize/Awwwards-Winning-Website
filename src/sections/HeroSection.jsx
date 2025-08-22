@@ -1,12 +1,18 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import SplitText from "gsap/SplitText"; 
+import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 const HeroSection = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
 
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
 
-
-useGSAP(() => {
+  useGSAP(() => {
     const titleSplit = SplitText.create(".hero-title", {
       type: "chars",
     });
@@ -28,66 +34,78 @@ useGSAP(() => {
           ease: "circ.out",
         },
         "-=0.5"
-    )
-    .from(
+      )
+      .from(
         titleSplit.chars,
         {
           yPercent: 200,
           stagger: 0.02,
-          ease: "power2.out",      
-        },  
+          ease: "power2.out",
+        },
         "-=0.5"
       );
 
     const heroTl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero-content",
+        trigger: ".hero-container",
         start: "1% top",
         end: "bottom top",
-        scrub: true,   
+        scrub: true,
       },
     });
-    
-    heroTl.to(".hero-content", {
-      rotation: 7,
+    heroTl.to(".hero-container", {
+      rotate: 7,
       scale: 0.9,
       yPercent: 30,
       ease: "power1.inOut",
     });
   });
 
-
   return (
     <section className="bg-main-bg">
       <div className="hero-container">
-        <img
-          src="images/static-img.png"
-          alt="hero-img"
-          className="absolute bottom-0 
-          left-1/2 -translate-x-1/2 object-auto 
-          scale-100 md:scale-150"
-        />
-
+        {isTablet ? (
+          <>
+            {isMobile && (
+              <img
+                src="/images/hero-bg.png"
+                className="absolute bottom-40 size-full object-cover"
+              />
+            )}
+            <img
+              src="/images/hero-img.png"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
+            />
+          </>
+        ) : (
+          <video
+            src="/videos/hero-bg.mp4"
+            autoPlay
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
             <h1 className="hero-title">Absolutely Delicious</h1>
           </div>
           <div
             style={{
-              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100% )",
+              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
             }}
             className="hero-text-scroll"
           >
-            <div>
-              <h1 className="hero-subtitle">Protein + Caffine</h1>
+            <div className="hero-subtitle">
+              <h1>Protein + Caffine </h1>
             </div>
           </div>
 
           <h2>
-            Live boldly with SPYLT: turn ordinary moments into playful
+           Live boldly with SPYLT: turn ordinary moments into playful
             adventures with every creamy, smooth sip.
           </h2>
-
+          
           <div className="hero-button">
             <p>Chug a SPYLT</p>
           </div>
