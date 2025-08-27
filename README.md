@@ -44,7 +44,7 @@ Dive into creating a cutting-edge web experience designed for Awwwards recogniti
 
 ## Features
 
-In this course, You’ll learn how to:
+Feature & Tools:
 
 - ✨ Parallax Like a Pro
 - ⚡️ Master Clip-Path Magic
