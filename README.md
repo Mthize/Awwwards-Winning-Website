@@ -7,8 +7,10 @@
  <br />
  <br />
 
- <!-- 🔗 Live Demo Button -->
+<!-- 🔗 Live Demo Button -->
   <a href="https://awwwards-winning-website-35tf.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/-🌐 Live%20Demo-blue?style=for-the-badge" alt="Live Demo" />
+  </a>
 
  <div>
    <img src="https://img.shields.io/badge/-React_JS_V19-black?style=for-the-badge&logoColor=white&logo=react&color=007ACC" alt="react.js" />
