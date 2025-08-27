@@ -1,10 +1,14 @@
 import NavBar from './components/NavBar' 
 import HeroSection from './sections/HeroSection'
-import gsap from "gsap";
-import { ScrollSmoother, ScrollTrigger } from "gsap/all"; 
 import MessageSection from './sections/MessageSection'
 import FlavorSection from './sections/FlavorSection'
+import NutritionSection from './sections/NutritionSection'
+
+
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -23,7 +27,8 @@ const App = () => {
         <div id="smooth-content">
           <HeroSection />
           <MessageSection />
-          <FlavorSection />          
+          <FlavorSection />
+          <NutritionSection />
           <div></div>
         </div>
       </div>
